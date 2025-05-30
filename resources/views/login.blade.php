@@ -7,6 +7,7 @@
         <title>{{ config('app.name') }} | Login</title>
     </head>
     <body class="h-full font-inter">
+        <x-navbar />
         <div class="flex min-h-full">
         <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
             <div class="mx-auto w-full max-w-sm lg:w-96">
@@ -73,5 +74,9 @@
         @if ($errors->any())
             <x-notification.validation-errors title="Oops! Something went wrong" :validationMessages="$errors->all()" />
         @endif
+
+        @session ('system')
+            <x-notification.system type="success" :message="session('system')" />
+        @endsession
     </body>
 </html>

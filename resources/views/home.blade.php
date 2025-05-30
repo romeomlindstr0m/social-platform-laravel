@@ -7,6 +7,7 @@
         <title>{{ config('app.name') }} | Home</title>
     </head>
     <body class="h-full font-inter">
+        <x-navbar />
         <h1>This is the home page!</h1>
     </body>
 </html>

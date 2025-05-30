@@ -12,6 +12,8 @@ Route::post('/register', [AuthenticationController::class, 'register'])->name('r
 Route::get('/login', [AuthenticationController::class, 'showLogin'])->name('login.show');
 Route::post('/login', [AuthenticationController::class, 'login'])->name('login.submit');
 
+Route::post('/logout', [AuthenticationController::class, 'logout'])->middleware('auth')->name('logout');
+
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
