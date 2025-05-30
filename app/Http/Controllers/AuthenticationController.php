@@ -116,4 +116,14 @@ class AuthenticationController extends Controller
             'email' => 'The provided credentials are incorrect.',
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login.show')->with('system', 'Successfully signed out');
+    }
 }
