@@ -7,6 +7,8 @@
         <title>{{ config('app.name') }} | Verify your email</title>
     </head>
     <body class="h-full font-inter">
+        <x-navbar />
+
         @session ('verification_sent')
             <x-notification.banner :message="session('verification_sent')" />
         @endsession

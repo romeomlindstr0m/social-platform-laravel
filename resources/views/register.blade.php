@@ -7,6 +7,8 @@
         <title>{{ config('app.name') }} | Register</title>
     </head>
     <body class="h-full font-inter">
+        <x-navbar />
+        
         @session ('account_created')
             <x-notification.banner :message="session('account_created')" />
         @endsession
